@@ -1,4 +1,4 @@
 
 public class FoodTruck {
-
+    // fields
 }

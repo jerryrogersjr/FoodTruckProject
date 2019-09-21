@@ -1,4 +1,4 @@
-## Food Truck Project 
+## Food Truck Project
 
 ### Overview
 
@@ -7,3 +7,5 @@
 ### Technologies/Topics (I) Used
 
 ### Lessons learned
+
+### Project Requirements 
