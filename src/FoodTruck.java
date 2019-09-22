@@ -62,8 +62,6 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
-	
-
 	public String getToString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Food Truck Name: ");
@@ -124,5 +122,5 @@ public class FoodTruck {
 		System.out.println("average");
 
 	}
-	
+
 }
