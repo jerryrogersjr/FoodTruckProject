@@ -2,23 +2,22 @@ import java.util.Scanner;
 
 public class FoodTruck {
 	// fields
-	private String trkName = null;
-	private String foodItem = null;
-	private int trkId = 0;
-	private int rating = 0;
-	private static int nextTruckId = 0;
-	
-	
+	private String trkName;
+	private String foodItem;
+	private static int trkId = 3509;
+	private int rating;
+	private static int nextTruckId;
+
 	// constructors
 	public FoodTruck() {
-		setTrkId(trkId);
+		super();
 	}
 
 	public FoodTruck(String trkName, String foodItem, int trkId, int rating) {
-		setTrkId(trkId);
+		super();
 		this.trkName = trkName;
 		this.foodItem = foodItem;
-		this.trkId = trkId;
+		FoodTruck.trkId = trkId;
 		this.rating = rating;
 	}
 
@@ -38,14 +37,21 @@ public class FoodTruck {
 		this.foodItem = foodItem;
 	}
 
-	public int getTrkId() {
+	public static int getTrkId() {
 		return trkId;
 	}
 
-	public void setTrkId(int trkId) {
-		trkId++;
-		nextTruckId = trkId;
-		this.trkId = nextTruckId;
+	public static void setTrkId(int trkId) {
+		trkId++; // added
+		FoodTruck.trkId = trkId;
+	}
+
+	public static int getNextTruckId() {
+		return nextTruckId;
+	}
+
+	public static void setNextTruckId(int nextTruckId) {
+		FoodTruck.nextTruckId = nextTruckId;
 	}
 
 	public int getRating() {
@@ -56,44 +62,53 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
-	public static void setNextTruckId(int nextTruckId) {
-		FoodTruck.nextTruckId = nextTruckId;
-		nextTruckId++;
+	
+
+	public String getToString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Food Truck Name: ");
+		builder.append(trkName);
+		builder.append("Food Type: ");
+		builder.append(foodItem);
+		builder.append("Truck ID: ");
+		builder.append(trkId);
+		builder.append("Rating: ");
+		builder.append(rating);
+		return builder.toString();
 	}
 
-	@Override
-	public String toString() {
-		return String.format("FoodTruck [trkName=%s, foodItem=%s, trkId=%s, rating=%s]", 
-				trkName, foodItem, trkId, rating);
+	public void getMenu(Scanner kb) {
+		while (true) {
+			System.out.println("Choose from the following menu");
+			System.out.println("*=======================================*");
+			System.out.println("1 <== List all Food Trucks");
+			System.out.println("2 <== Display Food Truck Average Rating");
+			System.out.println("3 <== Display Highest Rated Food Truck");
+			System.out.println("4 <== Quit Program");
+			System.out.println("*=======================================*");
+			int selection = kb.nextInt();
+
+			if (selection == 1) {
+				// food truck list
+				System.out.println("list");
+			}
+			if (selection == 2) {
+				// food truck average
+				//calculateAverage();
+				System.out.println("average");
+			}
+			if (selection == 3) {
+				// highest rated
+
+				System.out.println("highest rated");
+			}
+			if (selection == 4) {
+				System.out.println("Goodbye!");
+				System.exit(0);
+			}
+
+		}
+
 	}
 
-	public int getMenu(Scanner kb) {
-		System.out.println("Choose from the following menu");
-		System.out.println("*=======================================*");
-		System.out.println("1 <== List all Food Trucks");
-		System.out.println("3 <== Display Food Truck Average Rating");
-		System.out.println("4 <== Display Highest Rated Food Truck");
-		System.out.println("5 <== Quit Program");
-		System.out.println("*=======================================*");
-		int output = kb.nextInt();
-		return output;
-		
-	}
-
-
-
-	
-
-	
-
-
-
-
-	
-
-
-	
-	
-	
-	
 }
