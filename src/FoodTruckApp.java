@@ -6,12 +6,9 @@ public class FoodTruckApp {
 		Scanner kb = new Scanner(System.in);
 		FoodTruck ft = new FoodTruck();
 		//FoodTruck[] ftArr = new FoodTruck[5];
-
 	
 		ft.readySetGo(kb);
-//		ft.setTrkName("hello");
-//		
-//		System.out.println(ft.getTrkName());
+
 	}
 
 }

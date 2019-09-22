@@ -4,9 +4,9 @@ public class FoodTruck {
 	// fields
 	private String trkName;
 	private String foodItem;
-	private static int trkId = 3509;
+	private int trkId;
 	private int rating;
-	private static int nextTruckId;
+	private static int nextTruckId = 3509;
 
 	// constructors
 	public FoodTruck() {
@@ -17,8 +17,17 @@ public class FoodTruck {
 		super();
 		this.trkName = trkName;
 		this.foodItem = foodItem;
-		this.trkId = trkId;
+		this.trkId = nextTruckId;
 		this.rating = rating;
+	}
+
+	public int getTrkId() {
+		return trkId;
+	}
+
+	public void setTrkId(int trkId) {
+		this.trkId = nextTruckId;
+		nextTruckId++; // added
 	}
 
 	public String getTrkName() {
@@ -37,23 +46,6 @@ public class FoodTruck {
 		this.foodItem = foodItem;
 	}
 
-	public static int getTrkId() {
-		return trkId;
-	}
-
-	public static void setTrkId(int trkId) {
-		trkId++; // added
-		FoodTruck.trkId = trkId;
-	}
-
-	public static int getNextTruckId() {
-		return nextTruckId;
-	}
-
-	public static void setNextTruckId(int nextTruckId) {
-		FoodTruck.nextTruckId = nextTruckId;
-	}
-
 	public int getRating() {
 		return rating;
 	}
@@ -62,18 +54,6 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
-	public String getToString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Food Truck Name: ");
-		builder.append(trkName);
-		builder.append("\tFood Type: ");
-		builder.append(foodItem);
-		builder.append("\tTruck ID: ");
-		builder.append(trkId);
-		builder.append("\tRating: ");
-		builder.append(rating);
-		return builder.toString();
-	}
 //	public int truckRating(int rating) {
 //		
 //			switch (this.rating) {
@@ -98,7 +78,7 @@ public class FoodTruck {
 //			return rating;
 //		}
 
-	public void getMenu(Scanner kb) {
+	private void getMenu(Scanner kb, FoodTruck[] ftArr) {
 		while (true) {
 			System.out.println("Choose from the following menu");
 			System.out.println("*=======================================*");
@@ -110,17 +90,21 @@ public class FoodTruck {
 			int selection = kb.nextInt();
 
 			if (selection == 1) {
-				// food truck list
-				
-				displayTrucks();
+				displayTrucks(ftArr);
+				for (int i = 0; i < ftArr.length; i++) {
+					if ( ftArr[i] == null) {
+						break;
+					} else {
+						System.out.println("Truck " + (i + 1) + ": " + ftArr[i]);
+					}
+				}
 			}
+
 			if (selection == 2) {
 				// food truck average
-				calculateAverage();
 			}
 			if (selection == 3) {
 				// highest rated
-				// displayHighRating();
 			}
 			if (selection == 4) {
 				System.out.println("Goodbye!");
@@ -131,26 +115,26 @@ public class FoodTruck {
 
 	}
 
-	private void displayTrucks() {
+	
+
+	private void displayTrucks(FoodTruck[] ftArr) {
 		// TODO Auto-generated method stub
-		System.out.println(getToString());
-		
+		for (int i = 0; i < ftArr.length; i++) {
+			if ( ftArr[i] == null) {
+				break;
+			} else {
+				System.out.println("Truck " + (i + 1) + ": " + ftArr[i]);
+			}
+		}
 	}
 
-	private void displayHighRating(Scanner kb) {
-		// TODO Auto-generated method stub
-		System.out.println("highest rated");
-//		int highRating = 0;
-//		for ()
+	@Override
+	public String toString() {
+		return "FoodTruck [trkName=" + trkName + ", foodItem=" + foodItem + ", trkId=" + trkId + ", rating=" + rating
+				+ "]";
 	}
 
-	private void calculateAverage() {
-		// TODO Auto-generated method stub
-		System.out.println("average");
-
-	}
-
-	public void readySetGo(Scanner kb) {
+	public FoodTruck[] readySetGo(Scanner kb) {
 
 		FoodTruck[] ftArr = new FoodTruck[5];
 
@@ -159,24 +143,26 @@ public class FoodTruck {
 		for (int i = 0; i < 5; i++) {
 			int position = i;
 			System.out.print((position + 1) + " Truck Name: ");
-			String name = kb.next();
-			if (name.equalsIgnoreCase("Quit")) {
+			trkName = kb.next();
+			if (trkName.equalsIgnoreCase("Quit")) {
 				System.out.println();
 				break;
 			} else {
 				ft.setTrkName(trkName);
 				ft.setTrkId(trkId);
 				System.out.print((position + 1) + " Food Type: ");
-				String type = kb.next();
-				ft.setFoodItem(type);
+				foodItem = kb.next();
+				ft.setFoodItem(foodItem);
 				System.out.print((position + 1) + " Rating 1 to 5: ");
-				int rating = kb.nextInt();
+				rating = kb.nextInt();
 				ft.setRating(rating);
 				System.out.println();
 				ftArr[i] = ft;
+				System.out.println(toString());
 			}
 		}
-		ft.getMenu(kb);
+		getMenu(kb, ftArr);
+		return ftArr;
 	}
 
 }
