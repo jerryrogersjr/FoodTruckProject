@@ -13,27 +13,17 @@ public class FoodTruckApp {
 		for (int i = 0; i < ft.length; i++) {
 			ft[i] = new FoodTruck();
 
+			System.out.print((ft.length - i) + " Truck Name: ");
+			trk1 = kb.next();
 			if (trk1.equalsIgnoreCase("Quit")) {
 				System.out.println();
 				break;
 			} else {
-				System.out.print((ft.length - i) + " Truck Name: ");
-				trk1 = kb.next();
 				ft[i].setTrkName(trk1);
 				ft[i].setTrkId(i);
-			}
-			if (trk1.equalsIgnoreCase("Quit")) {
-				System.out.println();
-				break;
-			} else {
 				System.out.print((ft.length - i) + " Food Type: ");
 				String type = kb.next();
 				ft[i].setFoodItem(type);
-			}
-			if (trk1.equalsIgnoreCase("Quit")) {
-				System.out.println();
-				break;
-			} else {
 				System.out.print((ft.length - i) + " Rating 1 to 5: ");
 				int rating = kb.nextInt();
 				ft[i].setRating(rating);
@@ -43,4 +33,5 @@ public class FoodTruckApp {
 		}
 		trk.getMenu(kb);
 	}
+
 }

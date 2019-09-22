@@ -81,26 +81,24 @@ public class FoodTruck {
 		while (true) {
 			System.out.println("Choose from the following menu");
 			System.out.println("*=======================================*");
-			System.out.println("1 <== List all Food Trucks");
-			System.out.println("2 <== Display Food Truck Average Rating");
-			System.out.println("3 <== Display Highest Rated Food Truck");
-			System.out.println("4 <== Quit Program");
+			System.out.println("1 <== List all Food Trucks              |");
+			System.out.println("2 <== Display Food Truck Average Rating |");
+			System.out.println("3 <== Display Highest Rated Food Truck  |");
+			System.out.println("4 <== Quit Program                      |");
 			System.out.println("*=======================================*");
 			int selection = kb.nextInt();
 
 			if (selection == 1) {
 				// food truck list
-				System.out.println("list");
+				displayTrucks();
 			}
 			if (selection == 2) {
 				// food truck average
-				//calculateAverage();
-				System.out.println("average");
+				calculateAverage();
 			}
 			if (selection == 3) {
 				// highest rated
-
-				System.out.println("highest rated");
+				displayHighRating();
 			}
 			if (selection == 4) {
 				System.out.println("Goodbye!");
@@ -111,4 +109,20 @@ public class FoodTruck {
 
 	}
 
+	private void displayHighRating() {
+		// TODO Auto-generated method stub
+		System.out.println("highest rated");
+	}
+
+	private void displayTrucks() {
+		// TODO Auto-generated method stub
+		System.out.println(getToString());
+	}
+
+	private void calculateAverage() {
+		// TODO Auto-generated method stub
+		System.out.println("average");
+
+	}
+	
 }
