@@ -4,7 +4,7 @@ public class FoodTruck {
 	// fields
 	private String trkName;
 	private String foodItem;
-	private int trkId;
+	private static int trkId = 3509;
 	private int rating;
 	private static int nextTruckId = 3509;
 
@@ -17,7 +17,7 @@ public class FoodTruck {
 		super();
 		this.trkName = trkName;
 		this.foodItem = foodItem;
-		this.trkId = nextTruckId;
+		this.trkId = trkId;
 		this.rating = rating;
 	}
 
@@ -26,8 +26,8 @@ public class FoodTruck {
 	}
 
 	public void setTrkId(int trkId) {
-		this.trkId = nextTruckId;
-		nextTruckId++; // added
+		trkId++; // added
+		this.trkId = trkId;
 	}
 
 	public String getTrkName() {
@@ -54,30 +54,6 @@ public class FoodTruck {
 		this.rating = rating;
 	}
 
-//	public int truckRating(int rating) {
-//		
-//			switch (this.rating) {
-//			case 1:
-//				rating = 1;
-//				break;
-//			case 2:
-//				rating = 2;
-//				break;
-//			case 3:
-//				rating = 3;
-//				break;
-//			case 4:
-//				rating = 4;
-//				break;
-//			case 5:
-//				rating = 5;
-//				break;
-//			default:
-//				System.err.print("Entry ERROR");
-//			}
-//			return rating;
-//		}
-
 	private void getMenu(Scanner kb, FoodTruck[] ftArr) {
 		while (true) {
 			System.out.println("Choose from the following menu");
@@ -90,12 +66,13 @@ public class FoodTruck {
 			int selection = kb.nextInt();
 
 			if (selection == 1) {
-				displayTrucks(ftArr);
+//				displayTrucks(ftArr);
 				for (int i = 0; i < ftArr.length; i++) {
 					if ( ftArr[i] == null) {
-						break;
+						continue;
 					} else {
-						System.out.println("Truck " + (i + 1) + ": " + ftArr[i]);
+//						System.out.println("Truck " + (i + 1) + ": " + ftArr.toString());
+						System.out.println(ftArr[i].toString());
 					}
 				}
 			}
@@ -117,52 +94,78 @@ public class FoodTruck {
 
 	
 
-	private void displayTrucks(FoodTruck[] ftArr) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < ftArr.length; i++) {
-			if ( ftArr[i] == null) {
-				break;
-			} else {
-				System.out.println("Truck " + (i + 1) + ": " + ftArr[i]);
-			}
-		}
-	}
+//	private void displayTrucks(FoodTruck[] ftArr) {
+//		// TODO Auto-generated method stub
+//	
 
 	@Override
 	public String toString() {
-		return "FoodTruck [trkName=" + trkName + ", foodItem=" + foodItem + ", trkId=" + trkId + ", rating=" + rating
-				+ "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("FoodTruck name: ");
+		builder.append(trkName);
+		builder.append(", Food Type: ");
+		builder.append(foodItem);
+		builder.append(", Rating ");
+		builder.append(rating);
+		builder.append(" ");
+		return builder.toString();
 	}
 
-	public FoodTruck[] readySetGo(Scanner kb) {
+	public void readySetGo(Scanner kb) {
+
 
 		FoodTruck[] ftArr = new FoodTruck[5];
-
 		System.out.print("Enter up to 5 Food Truck names, food type, and rating.\n");
-		FoodTruck ft = new FoodTruck();
 		for (int i = 0; i < 5; i++) {
+			FoodTruck ft = new FoodTruck();
 			int position = i;
 			System.out.print((position + 1) + " Truck Name: ");
-			trkName = kb.next();
-			if (trkName.equalsIgnoreCase("Quit")) {
+			String name = kb.next();
+			
+			if (name.equalsIgnoreCase("Quit")) {
 				System.out.println();
 				break;
+				
 			} else {
-				ft.setTrkName(trkName);
+				ft.setTrkName(name);
 				ft.setTrkId(trkId);
 				System.out.print((position + 1) + " Food Type: ");
-				foodItem = kb.next();
-				ft.setFoodItem(foodItem);
+				String type = kb.next();
+				ft.setFoodItem(type);
 				System.out.print((position + 1) + " Rating 1 to 5: ");
-				rating = kb.nextInt();
+				int rating = kb.nextInt();
 				ft.setRating(rating);
 				System.out.println();
 				ftArr[i] = ft;
-				System.out.println(toString());
-			}
 		}
-		getMenu(kb, ftArr);
-		return ftArr;
 	}
-
+		getMenu(kb, ftArr);
+	}
 }
+
+
+
+
+//public int truckRating(int rating) {
+//
+//	switch (this.rating) {
+//	case 1:
+//		rating = 1;
+//		break;
+//	case 2:
+//		rating = 2;
+//		break;
+//	case 3:
+//		rating = 3;
+//		break;
+//	case 4:
+//		rating = 4;
+//		break;
+//	case 5:
+//		rating = 5;
+//		break;
+//	default:
+//		System.err.print("Entry ERROR");
+//	}
+//	return rating;
+//}
