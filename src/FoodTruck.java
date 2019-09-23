@@ -73,7 +73,7 @@ public class FoodTruck {
 				averageRating(ftArr); // food truck rating average
 			}
 			if (selection == 3) {
-				// highest rated truck
+				highestRating(): // highest rated truck
 			}
 			if (selection == 4) {
 				System.out.println("Goodbye!");
@@ -110,6 +110,11 @@ public class FoodTruck {
 		}
 		System.out.println("The average food truck rating is: " + ave);
 	}
+	public void highestRating(FoodTruck[] ftArr) {
+		for (int i = 0; i < ftArr.length; i++) {
+			
+		}
+	}
 
 	@Override
 	public String toString() {
@@ -130,7 +135,7 @@ public class FoodTruck {
 
 		FoodTruck[] ftArr = new FoodTruck[5];
 		System.out.print("Enter up to 5 Food Truck names, food type, and rating.\n");
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < ftArr.length; i++) {
 			FoodTruck ft = new FoodTruck();
 			int position = i;
 			System.out.print((position + 1) + " Truck Name: ");
