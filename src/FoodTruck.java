@@ -138,6 +138,7 @@ public class FoodTruck {
 
 		FoodTruck[] ftArr = new FoodTruck[5];
 		System.out.print("Enter up to 5 Food Truck names, food type, and rating.\n");
+		System.out.print("Enter \"quit\" in 'Truck Name' to stop and move on.\n" );
 		for (int i = 0; i < ftArr.length; i++) {
 			FoodTruck ft = new FoodTruck();
 			int position = i;
