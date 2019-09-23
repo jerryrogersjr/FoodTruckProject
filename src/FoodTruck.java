@@ -68,7 +68,7 @@ public class FoodTruck {
 			if (selection == 1) {
 //				displayTrucks(ftArr);
 				for (int i = 0; i < ftArr.length; i++) {
-					if ( ftArr[i] == null) {
+					if (ftArr[i] == null) {
 						continue;
 					} else {
 //						System.out.println("Truck " + (i + 1) + ": " + ftArr.toString());
@@ -92,8 +92,6 @@ public class FoodTruck {
 
 	}
 
-	
-
 //	private void displayTrucks(FoodTruck[] ftArr) {
 //		// TODO Auto-generated method stub
 //	
@@ -101,18 +99,19 @@ public class FoodTruck {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("FoodTruck name: ");
-		builder.append(trkName);
-		builder.append(", Food Type: ");
-		builder.append(foodItem);
-		builder.append(", Rating ");
-		builder.append(rating);
-		builder.append(" ");
+		builder.append("Food Truck Name: ");
+		builder.append(trkName + "\n");
+		builder.append("Food Type: ");
+		builder.append(foodItem + "\n");
+		builder.append("Truck ID ");
+		builder.append(trkId + "\n");
+		builder.append("Rating ");
+		builder.append(rating + "\n");
+		builder.append("\n");
 		return builder.toString();
 	}
 
 	public void readySetGo(Scanner kb) {
-
 
 		FoodTruck[] ftArr = new FoodTruck[5];
 		System.out.print("Enter up to 5 Food Truck names, food type, and rating.\n");
@@ -121,11 +120,11 @@ public class FoodTruck {
 			int position = i;
 			System.out.print((position + 1) + " Truck Name: ");
 			String name = kb.next();
-			
+
 			if (name.equalsIgnoreCase("Quit")) {
 				System.out.println();
 				break;
-				
+
 			} else {
 				ft.setTrkName(name);
 				ft.setTrkId(trkId);
@@ -137,35 +136,8 @@ public class FoodTruck {
 				ft.setRating(rating);
 				System.out.println();
 				ftArr[i] = ft;
+			}
 		}
-	}
 		getMenu(kb, ftArr);
 	}
 }
-
-
-
-
-//public int truckRating(int rating) {
-//
-//	switch (this.rating) {
-//	case 1:
-//		rating = 1;
-//		break;
-//	case 2:
-//		rating = 2;
-//		break;
-//	case 3:
-//		rating = 3;
-//		break;
-//	case 4:
-//		rating = 4;
-//		break;
-//	case 5:
-//		rating = 5;
-//		break;
-//	default:
-//		System.err.print("Entry ERROR");
-//	}
-//	return rating;
-//}
