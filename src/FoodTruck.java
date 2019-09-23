@@ -138,7 +138,7 @@ public class FoodTruck {
 
 		FoodTruck[] ftArr = new FoodTruck[5];
 		System.out.print("Enter up to 5 Food Truck names, food type, and rating.\n");
-		System.out.print("Enter \"quit\" in 'Truck Name' to stop and move on.\n" );
+		System.out.print("Enter \"quit\" in 'Truck Name' to stop and move on.\n");
 		for (int i = 0; i < ftArr.length; i++) {
 			FoodTruck ft = new FoodTruck();
 			int position = i;
@@ -151,7 +151,7 @@ public class FoodTruck {
 
 			} else {
 				ft.setTrkName(name);
-				//ft.setTrkId(trkId);
+				// ft.setTrkId(trkId);
 				System.out.print((position + 1) + " Food Type: ");
 				String type = kb.next();
 				ft.setFoodItem(type);
