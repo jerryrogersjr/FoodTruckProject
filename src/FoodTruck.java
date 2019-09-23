@@ -73,7 +73,7 @@ public class FoodTruck {
 				averageRating(ftArr); // food truck rating average
 			}
 			if (selection == 3) {
-				highestRating(): // highest rated truck
+				highestRating(ftArr); // highest rated truck
 			}
 			if (selection == 4) {
 				System.out.println("Goodbye!");
@@ -94,26 +94,33 @@ public class FoodTruck {
 			}
 		}
 	}
+
 	public void averageRating(FoodTruck[] ftArr) {
 		int total = 0;
 		int ave = 0;
-		int indexN;
+		int index = 0;
 		for (int i = 0; i < ftArr.length; i++) {
 			if (ftArr[i].getRating() == 0) {
-				break;
+				continue;
 			}
-			int rate = ftArr[i].getRating(); // 
+			int rate = ftArr[i].getRating(); //
 			total += rate;
-			indexN = i + 1;
-			ave = total / indexN;
-
+			index = i + 1;
+			ave = total / index;
 		}
 		System.out.println("The average food truck rating is: " + ave);
 	}
+
 	public void highestRating(FoodTruck[] ftArr) {
+		int max = ftArr[0].rating;
+		FoodTruck maxTruck = ftArr[0];
+
 		for (int i = 0; i < ftArr.length; i++) {
-			
+			if (maxTruck.rating < ftArr[i].rating) {
+				maxTruck = ftArr[i];
+			}
 		}
+		System.out.println(maxTruck);
 	}
 
 	@Override
