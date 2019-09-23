@@ -116,7 +116,7 @@ public class FoodTruck {
 				maxTruck = ftArr[i];
 			}
 		}
-		System.out.println("Winning Truck with Highest Rating: " + maxTruck);
+		System.out.println("Winning Truck with Highest Rating: \n" + maxTruck);
 	}
 
 	@Override
