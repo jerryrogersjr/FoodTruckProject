@@ -88,15 +88,15 @@ File, open, navigate to the file(s), and open. Run as java file and get results,
 
 Lessons learns...well, it took me a lot longer than maybe it should have. However,
 I'm finding that as I had many 'little' challenges, I spent a lot of time learning
-Java the hard way ;). Over the past week, there were some of the topics that didn't
+Java the hard way ;). Over the past week, there were some topics that didn't
 quiet set in, but this project forced me to dig deep, work hard, reach out for
 help, and not only reinforce the materials but help me learn about prioritizing
 when and what to go down the 'rabbit hole' on... Overall, I learned a lot with
 much more to learn.
 
-Key take aways was 'passing by value', visibility, inheritance, object initialization,
+Key take aways were 'passing by value', visibility, inheritance, object initialization,
 encapsulation, and Never Quit...the answer is a short walk away (or whatever you
-do to clear your hear).
+do to clear your head).
 
 ### Project Requirements
 
