@@ -8,7 +8,7 @@ feedback and loop back to the menu until the user enters quit to exit the progra
 
 example:
 ```
-Choose from the following menu```
+Choose from the following menu
 *=======================================*
 1 <== List all Food Trucks              |
 2 <== Display Food Truck Average Rating |
