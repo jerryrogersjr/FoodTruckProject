@@ -4,9 +4,10 @@ public class FoodTruck {
 	// fields
 	private String trkName;
 	private String foodItem;
-	private static int trkId = 3509;
+	private int trkId = 3508;
 	private int rating;
 	private static int nextTruckId = 3509;
+	private int counter;
 
 	// constructors
 	public FoodTruck() {
@@ -17,7 +18,7 @@ public class FoodTruck {
 		super();
 		this.trkName = trkName;
 		this.foodItem = foodItem;
-		this.trkId = trkId;
+		this.trkId = nextTruckId;
 		this.rating = rating;
 	}
 
@@ -26,8 +27,8 @@ public class FoodTruck {
 	}
 
 	public void setTrkId(int trkId) {
-		trkId++; // added
-		this.trkId = trkId;
+		this.trkId = nextTruckId;
+		nextTruckId++; // added
 	}
 
 	public String getTrkName() {
@@ -96,26 +97,21 @@ public class FoodTruck {
 	}
 
 	public void averageRating(FoodTruck[] ftArr) {
-		int total = 0;
-		int ave = 0;
-		int index = 0;
-		for (int i = 0; i < ftArr.length; i++) {
-			if (ftArr[i].getRating() == 0) {
-				continue;
+		int output = 0;
+		double average = 0;
+		for (int i = 0; i < counter; i++) {
+			if (i < counter) {
+				output = output + ftArr[i].rating;
+				average = ((double) output / counter);
 			}
-			int rate = ftArr[i].getRating(); //
-			total += rate;
-			index = i + 1;
-			ave = total / index;
 		}
-		System.out.println("The average food truck rating is: " + ave);
+		System.out.println("Food Truck Average: " + average);
+		System.out.println();
 	}
 
 	public void highestRating(FoodTruck[] ftArr) {
-		int max = ftArr[0].rating;
 		FoodTruck maxTruck = ftArr[0];
-
-		for (int i = 0; i < ftArr.length; i++) {
+		for (int i = 0; i < counter; i++) {
 			if (maxTruck.rating < ftArr[i].rating) {
 				maxTruck = ftArr[i];
 			}
@@ -154,7 +150,7 @@ public class FoodTruck {
 
 			} else {
 				ft.setTrkName(name);
-				ft.setTrkId(trkId);
+				//ft.setTrkId(trkId);
 				System.out.print((position + 1) + " Food Type: ");
 				String type = kb.next();
 				ft.setFoodItem(type);
@@ -163,6 +159,8 @@ public class FoodTruck {
 				ft.setRating(rating);
 				System.out.println();
 				ftArr[i] = ft;
+				ftArr[i].setTrkId(i);
+				counter++;
 			}
 		}
 		getMenu(kb, ftArr);
