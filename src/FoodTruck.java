@@ -66,22 +66,14 @@ public class FoodTruck {
 			int selection = kb.nextInt();
 
 			if (selection == 1) {
-//				displayTrucks(ftArr);
-				for (int i = 0; i < ftArr.length; i++) {
-					if (ftArr[i] == null) {
-						continue;
-					} else {
-//						System.out.println("Truck " + (i + 1) + ": " + ftArr.toString());
-						System.out.println(ftArr[i].toString());
-					}
-				}
+				displayTrucks(ftArr); // list of all trucks and data
 			}
 
 			if (selection == 2) {
-				// food truck average
+				averageRating(ftArr); // food truck rating average
 			}
 			if (selection == 3) {
-				// highest rated
+				// highest rated truck
 			}
 			if (selection == 4) {
 				System.out.println("Goodbye!");
@@ -92,9 +84,32 @@ public class FoodTruck {
 
 	}
 
-//	private void displayTrucks(FoodTruck[] ftArr) {
-//		// TODO Auto-generated method stub
-//	
+	public void displayTrucks(FoodTruck[] ftArr) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < ftArr.length; i++) {
+			if (ftArr[i] == null) {
+				continue;
+			} else {
+				System.out.println(ftArr[i].toString());
+			}
+		}
+	}
+	public void averageRating(FoodTruck[] ftArr) {
+		int total = 0;
+		int ave = 0;
+		int indexN;
+		for (int i = 0; i < ftArr.length; i++) {
+			if (ftArr[i].getRating() == 0) {
+				break;
+			}
+			int rate = ftArr[i].getRating(); // 
+			total += rate;
+			indexN = i + 1;
+			ave = total / indexN;
+
+		}
+		System.out.println("The average food truck rating is: " + ave);
+	}
 
 	@Override
 	public String toString() {
