@@ -6,17 +6,32 @@ will ask to enter food truck name, food type, and rating for up to five trucks.
 The program will then display a menu of options to choose from which will provide
 feedback and loop back to the menu until the user enters quit to exit the program.
 
-####example:
+### example:
 
-####Choose from the following menu
-####*=======================================*
-####1 <== List all Food Trucks              |
-####2 <== Display Food Truck Average Rating |
-####3 <== Display Highest Rated Food Truck  |
-####4 <== Quit Program                      |
-####*=======================================*
-####4
-####Goodbye!
+Choose from the following menu
+*=======================================*
+1 <== List all Food Trucks              |
+2 <== Display Food Truck Average Rating |
+3 <== Display Highest Rated Food Truck  |
+4 <== Quit Program                      |
+*=======================================*
+3
+Food Truck Name: 3
+Food Type: 3
+Truck ID 3509
+Rating 3
+
+
+Choose from the following menu
+*=======================================*
+1 <== List all Food Trucks              |
+2 <== Display Food Truck Average Rating |
+3 <== Display Highest Rated Food Truck  |
+4 <== Quit Program                      |
+*=======================================*
+4
+Goodbye!
+
 
 ### Overview
 
