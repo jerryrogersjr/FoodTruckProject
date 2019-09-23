@@ -7,14 +7,14 @@ The program will then display a menu of options to choose from which will provid
 feedback and loop back to the menu until the user enters quit to exit the program.
 
 example:
-
-Choose from the following menu
-*****************************************
-1 *** List all Food Trucks              *
-2 *** Display Food Truck Average Rating *
-3 *** Display Highest Rated Food Truck  *
-4 *** Quit Program                      *
-*****************************************
+```
+Choose from the following menu```
+*=======================================*
+1 <== List all Food Trucks              |
+2 <== Display Food Truck Average Rating |
+3 <== Display Highest Rated Food Truck  |
+4 <== Quit Program                      |
+*=======================================*
 3
 Food Truck Name: 3
 Food Type: 3
@@ -23,15 +23,15 @@ Rating 3
 
 
 Choose from the following menu
-*****************************************
-1 *** List all Food Trucks              *
-2 *** Display Food Truck Average Rating *
-3 *** Display Highest Rated Food Truck  *
-4 *** Quit Program                      *
-*****************************************
+*=======================================*
+1 <== List all Food Trucks              |
+2 <== Display Food Truck Average Rating |
+3 <== Display Highest Rated Food Truck  |
+4 <== Quit Program                      |
+*=======================================*
 4
 Goodbye!
-
+```
 
 ### Overview
 
